@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.2;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -7,15 +7,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract ChickFillets is ERC721, ERC721URIStorage, Ownable {
-    mapping(string => uint8) existingURIs;
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
 
+    mapping(string => uint8) existingURIs;
+
     constructor() ERC721("ChickFillets", "CFA") {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return "https://QmbsL3yR1qoUy3zZLdUySTSqa78YPKwTFN4aTiaM8pMqHk";
+        return "ipfs://QmbsL3yR1qoUy3zZLdUySTSqa78YPKwTFN4aTiaM8pMqHk";
     }
 
     function safeMint(address to, string memory uri) public onlyOwner {
@@ -23,6 +24,7 @@ contract ChickFillets is ERC721, ERC721URIStorage, Ownable {
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
+        existingURIs[uri] = 1;
     }
 
     // The following functions are overrides required by Solidity.
@@ -44,7 +46,7 @@ contract ChickFillets is ERC721, ERC721URIStorage, Ownable {
         return existingURIs[uri] == 1;
     }
 
-      function payToMint(
+    function payToMint(
         address recipient,
         string memory metadataURI
     ) public payable returns (uint256) {
@@ -60,4 +62,10 @@ contract ChickFillets is ERC721, ERC721URIStorage, Ownable {
 
         return newItemId;
     }
+
+    function count() public view returns (uint256) {
+        return _tokenIdCounter.current();
+    }
+
+
 }
