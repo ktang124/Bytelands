@@ -38,5 +38,10 @@
 }
 
 button {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(15px + 2vmin);
+}
+
+img {
+  max-width: 50%;
+  max-height: 50%
 }
