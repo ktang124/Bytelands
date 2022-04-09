@@ -44,7 +44,7 @@ function Home() {
     <div>
       <WalletBalance />
 
-      <h1>Kevin's NFT Collection</h1>
+      <h1>Bytelands NFT Collection</h1>
       <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
           {Array(totalMinted + 1)
