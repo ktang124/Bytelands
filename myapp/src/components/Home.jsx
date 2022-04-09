@@ -1,6 +1,7 @@
 import WalletBalance from './WalletBalance';
 import { useEffect, useState } from 'react';
 
+import Button from '@mui/material/Button';
 import { ethers } from 'ethers';
 import FiredGuys from '../artifacts/contracts/cfaNFT.sol/ChickFillets.json';
 
@@ -91,13 +92,17 @@ function NFTImage({ tokenId, getCount }) {
       width="500" height="500"></img>
       <div className="card-body2">
         {!isMinted ? (
-          <button className="btn btn-primary" onClick={mintToken}>
-            Mint
-          </button>
+          <div className="btn btn-primary" onClick={mintToken}>
+            <Button variant="contained" color="primary">
+              Mint
+            </Button>
+          </div>
         ) : (
-          <button className="btn btn-secondary" onClick={getURI}>
-            Taken! Show URI
-          </button>
+          <div className="btn btn-secondary" onClick={getURI}>
+            <Button variant="contained" color="primary">
+              Taken! Show URI
+            </Button>
+          </div>
         )}
       </div>
     </div>
