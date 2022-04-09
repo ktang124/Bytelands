@@ -61,7 +61,7 @@ function Home() {
 }
 
 function NFTImage({ tokenId, getCount }) {
-  const contentId = 'QmZumhMJ4fjWBmS44X9LNagBP2WEDe1pgLPGE3MJKmGNbj';
+  const contentId = 'QmfJTizGpYueM7e7M5txQdZNof7yvSqj3QLmD7WR1gjNAK';
   const metadataURI = `${contentId}/${tokenId}.json`;
   const imageURI = `https://gateway.pinata.cloud/ipfs/${contentId}/${tokenId + 1}.png`;
 //   const imageURI = `img/${tokenId}.png`;
@@ -114,7 +114,10 @@ function NFTImage({ tokenId, getCount }) {
           </div>
         ) : (
           <div className="btn btn-secondary" onClick={getURI}>
-            <Button variant="contained" color="primary">
+            <Button style={{
+              backgroundColor: "#BABABA",
+        
+        }}variant="contained">
               Taken! Show URI
             </Button>
           </div>

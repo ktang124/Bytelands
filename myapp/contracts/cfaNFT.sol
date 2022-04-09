@@ -16,7 +16,8 @@ contract ChickFillets is ERC721, ERC721URIStorage, Ownable {
     constructor() ERC721("ChickFillets", "CFA") {}
 
     function _baseURI() internal pure override returns (string memory) {
-        return "ipfs://QmZumhMJ4fjWBmS44X9LNagBP2WEDe1pgLPGE3MJKmGNbj";
+        return "ipfs://QmfJTizGpYueM7e7M5txQdZNof7yvSqj3QLmD7WR1gjNAK";
+        
     }
 
     function safeMint(address to, string memory uri) public onlyOwner {

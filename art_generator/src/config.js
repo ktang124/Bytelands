@@ -5,8 +5,8 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "Chick Fillets";
-const description = "Create your own collection of little chick fillets! They aren't just a fillet! They are the whole package!";
+const namePrefix = "Bytelands";
+const description = "Create your own ByteLand!";
 const baseUri = "ipfs://QmbsL3yR1qoUy3zZLdUySTSqa78YPKwTFN4aTiaM8pMqHk";
 
 const solanaMetadata = {
@@ -24,14 +24,14 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 100,
+    growEditionSizeTo: 500,
     layersOrder: [
-      { name: "backgrounds" },
-      { name: "body" },
-      { name: "wing" },
-      { name: "eyes" },
-      { name: "beaks" },
-      { name: "comb" },
+      { name: "sky" },
+      { name: "land" },
+      { name: "water" },
+      { name: "foliage" },
+      { name: "structures" },
+      { name: "fire" },
     ],
   },
 ];
