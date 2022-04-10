@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
-import Button from '@mui/material/Button';
+
 function WalletBalance() {
 
     const [balance, setBalance] = useState();
@@ -16,11 +16,7 @@ function WalletBalance() {
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">Your Balance: {balance}</h5>
-          <div className="btn btn-success" onClick={() => getBalance()}> 
-          <Button variant="contained" color="primary">
-              Show My Balance!
-            </Button>
-            </div>
+          <button className="btn btn-success" onClick={() => getBalance()}>Show My Balance</button>
         </div>
       </div>
     );

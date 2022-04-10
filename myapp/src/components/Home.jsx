@@ -9,6 +9,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import CssBaseline from "@mui/material/CssBaseline";
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
@@ -18,6 +19,8 @@ import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
+import Theme from './Theme.jsx'
+import { ThemeProvider } from '@mui/material';
 
 
 const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
@@ -45,6 +48,8 @@ function Home() {
   };
 
   return (
+    <ThemeProvider theme={Theme}>
+        <CssBaseline/>
     <div>
       <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky">
@@ -60,10 +65,10 @@ function Home() {
         </Toolbar>
       </AppBar>
     </Box>
-    
+
       <Box sx={{ flexGrow: 1}}>
-      <Grid container spacing={2}
-            justifyContent="center">
+      <Grid container 
+            justifyContent="space-evenly">
           {Array(totalMinted + 1)
             .fill(0)
             .map((_, i) => (
@@ -75,6 +80,7 @@ function Home() {
         </Box>
         <WalletBalance />
     </div>
+    </ThemeProvider>
   );
 }
 
