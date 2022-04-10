@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
+import Button from '@mui/material/Button';
 
 function WalletBalance() {
 
@@ -15,8 +16,13 @@ function WalletBalance() {
     return (
       <div className="card">
         <div className="card-body">
+         
           <h5 className="card-title">Your Balance: {balance}</h5>
-          <button className="btn btn-success" onClick={() => getBalance()}>Show My Balance</button>
+          <div className="btn btn-success" onClick={() => getBalance()}>
+             <Button variant="contained" color="primary">
+              Show Balance
+            </Button></div>
+          
         </div>
       </div>
     );
