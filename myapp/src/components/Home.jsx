@@ -15,6 +15,10 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+
 
 const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 
@@ -42,11 +46,24 @@ function Home() {
 
   return (
     <div>
-      <WalletBalance />
-
-      <h1>Bytelands NFT Collection</h1>
       <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
+      <AppBar position="sticky">
+        <Toolbar>
+        <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            
+          >
+            Bytelands NFTs
+          </Typography>
+        </Toolbar>
+      </AppBar>
+    </Box>
+    
+      <Box sx={{ flexGrow: 1}}>
+      <Grid container spacing={2}
+            justifyContent="center">
           {Array(totalMinted + 1)
             .fill(0)
             .map((_, i) => (
@@ -56,6 +73,7 @@ function Home() {
             ))}
         </Grid>
         </Box>
+        <WalletBalance />
     </div>
   );
 }
@@ -102,14 +120,14 @@ function NFTImage({ tokenId, getCount }) {
       </CardContent>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-            ID #{tokenId}
+            Byteland #{tokenId}
         </Typography>
       </CardContent>
       <CardContent>
       {!isMinted ? (
           <div className="btn btn-primary" onClick={mintToken}>
             <Button variant="contained" color="primary">
-              Mint
+              Mint a new Byteland!
             </Button>
           </div>
         ) : (
@@ -118,7 +136,7 @@ function NFTImage({ tokenId, getCount }) {
               backgroundColor: "#BABABA",
         
         }}variant="contained">
-              Taken! Show URI
+              Show URI
             </Button>
           </div>
         )}
